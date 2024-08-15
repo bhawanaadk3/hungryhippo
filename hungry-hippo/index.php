@@ -6,7 +6,7 @@ $db_name ="hungry_hippo";
 
 $conn = mysqli_connect($hostname,$db_username,$db_password,$db_name);
 
-$query = "SELECT * FROM foods";
+$query = "SELECT * FROM foods order by createdAt DESC";
 $result = mysqli_query($conn, $query);
 $rows =  mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -36,6 +36,22 @@ $rows =  mysqli_fetch_all($result, MYSQLI_ASSOC);
       <!-- <div>
         <h1>"Hungry Hippo"</h1>
       </div> -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="http://localhost:8000/add-product.php">addproduct</a>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<div class=row>
 
       <?php foreach($rows as $data ): ?>
         <div class="card" style="width: 15rem;">
@@ -63,9 +79,11 @@ $rows =  mysqli_fetch_all($result, MYSQLI_ASSOC);
           <button class="btn btn-primary">Edit</button>
           <button class="btn btn-primary">Delete</button>
         </div>
+      
 
       </div>
     </div>
+  
 
 
 
@@ -80,7 +98,7 @@ $rows =  mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
     
-      
+      </div>
 </body>
 
 </html>
